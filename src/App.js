@@ -1,20 +1,32 @@
+
 import React from 'react';
-import logo from './logo.svg';
+
+import Home from './Component.js/Home.js';
+import About from './Component.js/About.js';
+import Contact from './Component.js/Contact.js';
+import Help from './Component.js/Help.js';
+import Menu from './Component.js/Menu.js';
 import './App.css';
-import Hello from './Hello';
-import Welcome from './Welcome';
-import StatelessWelcome from './StatelessWelcome';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
+
 
 function App() {
   return (
-    <div className="App">
-     
-     <Welcome message="This message is passed by the parent component to the child component"></Welcome>
+    <BrowserRouter>
+     <div className="App">
 
-     <StatelessWelcome counter='0'/>
 
-    </div>
+          <Menu/>
+          <Switch>
+          <Route path="/" exact Component={Home}/>
+          <Route path="/About"  Component={About}/>
+          <Route path="/Contact"  Component={Contact}/>
+          <Route path="/Help"  Component={Help}/>
+            </Switch>
+       </div>
+   </BrowserRouter>
   );
 }
-
 export default App;
+
+
